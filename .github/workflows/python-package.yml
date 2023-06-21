@@ -5,8 +5,8 @@ name: Weather Alarm
 
 on:
   schedule:
-    # 주기적으로 5분 간격마다 실행
-    - cron:  '*/1 * * * *' 
+    # 주기적으로 N분 간격마다 실행
+    - cron:  '0 0/2 * * *' 
 
 jobs:
   build:
