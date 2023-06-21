@@ -28,8 +28,7 @@ if data4 != None:
     dust1 = dust[0].find('span', attrs={'class':"txt"}).get_text()
     dust2 = dust[1].find('span', attrs={'class':"txt"}).get_text()
     pprint("🌫️  오늘의 미세먼지 : "+ dust1 + " | 오늘의 초미세먼지 : "+dust2)
-
-data5 = data4.find('li', attrs={'class':"item_today type_sun"})
-if data5 != None:
+    
+    data5 = data4.find('li', attrs={'class':"item_today type_sun"})
     sunrise = data5.find('span', attrs={'class':"txt"}).get_text()
     pprint("🔆 일출 시간 : "+sunrise)
