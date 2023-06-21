@@ -5,7 +5,9 @@ import requests
 html = requests.get('https://search.naver.com/search.naver?query=날씨')
 # pprint(html.text)
 
+if html == None : raise Exception("html err")
 soup = bs(html.text,'html.parser')
+if soup == None : raise Exception("bs err")
 data1 = soup.find('div', {'class': "title_area _area_panel"})
 find_address = data1.find('h2', {'class': "title"}).text
 pprint("📍 현 위치 : " + find_address)
