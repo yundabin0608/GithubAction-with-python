@@ -5,25 +5,19 @@ name: Weather Alarm
 
 on:
   schedule:
-    # 주기적으로 20분 간격마다 실행
-    - cron:  '*/20 * * * *' 
+    # 주기적으로 5분 간격마다 실행
+    - cron:  '*/5 * * * *' 
   
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.8", "3.9", "3.10"]
-
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.9
     
     # 파이썬 관련 패키지를 설치
     - name: Install python package 
