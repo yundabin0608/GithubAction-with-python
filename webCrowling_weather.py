@@ -7,8 +7,8 @@ html = requests.get('https://search.naver.com/search.naver?query=날씨')
 
 soup = bs(html.text,'html.parser')
 data1 = soup.find('div', attrs={'class': "title_area _area_panel"})
+pprint(data1)
 find_address = data1.find('h2', attrs={'class': "title"}).text
-
 pprint("📍 현 위치 : " + find_address)
 
 data2 = soup.find('div',attrs={'class':"temperature_text"})
