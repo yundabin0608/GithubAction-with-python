@@ -1,13 +1,13 @@
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: Python package
+name: Weather Alarm
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  schedule:
+    # 주기적으로 20분 간격마다 실행
+    - cron:  '*/20 * * * *' 
+  
 
 jobs:
   build:
@@ -24,6 +24,14 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
+    
+    # 파이썬 관련 패키지를 설치
+    - name: Install python package 
       run: |
-        python3 hello.py
+        pip install requests
+        pip install beautifulsoup4
+      
+    # 파이썬 파일 실행
+    - name: Install python package 
+      run: |
+        python3 ./webCrowling_weather.py 
