@@ -10,9 +10,6 @@ def get_seoul_weather():
     temperature = soup.find('span', {'data-testid':"TemperatureValue"}).get_text()
     description = soup.find('div', {'data-testid':"wxPhrase"}).get_text()
     humidity = soup.findAll('div', {'data-testid':"wxData"})
-    print(temperature)
-    print(description)
-    print(humidity)
     weather_data = {
         'Temperature': temperature,
         'Description': description,
