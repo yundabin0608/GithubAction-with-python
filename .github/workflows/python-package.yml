@@ -4,9 +4,12 @@
 name: Weather Alarm
 
 on:
-  schedule:
-    # 주기적으로 N분 간격마다 실행
-    - cron:  '0 0/2 * * *' 
+#   schedule:
+#     # 주기적으로 N분 간격마다 실행
+#     - cron:  '0 0/2 * * *' 
+   push:
+      branches: 
+        - main
 
 jobs:
   build:
